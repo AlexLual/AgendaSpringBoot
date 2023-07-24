@@ -1,7 +1,6 @@
 package postwork1.Bedu.service;
 
 import postwork1.Bedu.models.InterviewType;
-import postwork1.Bedu.models.Interviewer;
 
 import java.util.List;
 

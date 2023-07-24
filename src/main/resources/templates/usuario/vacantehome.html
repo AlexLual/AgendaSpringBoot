@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Spring eCommerce</title>
+  <title>Agenda Bedu</title>
 
 
   <!-- Bootstrap core CSS -->
@@ -30,12 +30,12 @@
 
       <!-- Page Heading/Breadcrumbs -->
       <h1 class="mt-4 mb-3">
-        Spring eCommerce <small>Producto</small>
+        Agenda Bedu <small>Vacantes</small>
       </h1>
 
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-        <li class="breadcrumb-item active">Producto</li>
+        <li class="breadcrumb-item active">Vacantes</li>
       </ol>
 
       <!-- Blog Post -->
@@ -44,21 +44,21 @@
           <div class="row">
             <div class="col-lg-6">
               <a href="#"> <img class="img-fluid rounded"
-                th:src="@{/images/{img} (img=${producto.imagen})}"  alt="">
+                src="@{/images/{img} (img=${vacante.imagen})}"  alt="">
               </a>
             </div>
             <div class="col-lg-6">
-              <form th:action="@{/cart}" method="POST">
-                <input type="hidden" th:value="${producto.id}" name="id">
+              <form action="@{/cart}" method="POST">
+                <input type="hidden" value="${vacante.id}" name="id">
 
 
-                <h2 class="card-title" th:text="${producto.nombre}"></h2>
+                <h2 class="card-title" text="${vacante.nombre}"></h2>
 
                 <ul class="list-group">
                   <li class="list-group-item">
-                    <h5 th:text="' Precio : ' +${producto.precio}"></h5></li>
+                    <h5 text="' Precio : ' +${producto.precio}"></h5></li>
                   <li class="list-group-item">
-                    <p th:text=" 'Descripción: ' + ${producto.descripcion}"></p>
+                    <p text=" 'Descripción: ' + ${vacante.descripcion}"></p>
                   </li>
                   <li class="list-group-item"><h6>
                     Cantidad: <input type="number" id="cantidad" name="cantidad" autocomplete="off"
@@ -67,7 +67,7 @@
                 </ul>
 
 
-                <button type="submit"  class="btn btn-dark">Añadir al carrito </button>
+                <button type="submit"  class="btn btn-dark">Aplicar Vacante </button>
 
               </form>
             </div>

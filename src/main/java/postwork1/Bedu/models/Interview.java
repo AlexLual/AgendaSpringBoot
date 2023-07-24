@@ -1,20 +1,23 @@
 package postwork1.Bedu.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Objects;
 
 @Entity
 @Table(name ="Interview")
+@Getter
+@Setter
 public class Interview {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
-    private Candidate candidate;
-    @OneToOne
-    private Interviewer interviewer;
+    private Usuario usuario;
+
     @OneToOne
     private InterviewType interviewType;
     @OneToOne
@@ -25,61 +28,16 @@ public class Interview {
    //GetterAndSetter
 
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Candidate getCandidate() {
-        return candidate;
-    }
-
-    public void setCandidate(Candidate candidate) {
-        this.candidate = candidate;
-    }
-
-    public Interviewer getInterviewer() {
-        return interviewer;
-    }
-
-    public void setInterviewer(Interviewer interviewer) {
-        this.interviewer = interviewer;
-    }
-
-    public InterviewType getInterviewType() {
-        return interviewType;
-    }
-
-    public void setInterviewType(InterviewType interviewType) {
-        this.interviewType = interviewType;
-    }
-
-    public Technology getTechnology() {
-        return technology;
-    }
-
-    public void setTechnology(Technology technology) {
-        this.technology = technology;
-    }
-
-    public Discipline getDiscipline() {
-        return discipline;
-    }
-
-    public void setDiscipline(Discipline discipline)
-    {
-        this.discipline = discipline;
-    }
     //Constructor
 
 
-    public Interview(Integer id, Candidate candidate, Interviewer interviewer, InterviewType interviewType, Technology technology, Discipline discipline) {
+    public Interview() {
+    }
+
+    public Interview(Integer id, Usuario usuario, InterviewType interviewType, Technology technology, Discipline discipline) {
         this.id = id;
-        this.candidate = candidate;
-        this.interviewer = interviewer;
+        this.usuario = usuario;
         this.interviewType = interviewType;
         this.technology = technology;
         this.discipline = discipline;
@@ -92,8 +50,7 @@ public class Interview {
     public String toString() {
         return "Interview{" +
                 "id=" + id +
-                ", candidate=" + candidate +
-                ", interviewer=" + interviewer +
+                ", candidate=" + usuario +
                 ", interviewType=" + interviewType +
                 ", technology=" + technology +
                 ", discipline=" + discipline +
@@ -107,11 +64,11 @@ public class Interview {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Interview interview = (Interview) o;
-        return Objects.equals(id, interview.id) && Objects.equals(candidate, interview.candidate) && Objects.equals(interviewer, interview.interviewer) && Objects.equals(interviewType, interview.interviewType) && Objects.equals(technology, interview.technology) && Objects.equals(discipline, interview.discipline);
+        return Objects.equals(id, interview.id) && Objects.equals(usuario, interview.usuario) && Objects.equals(interviewType, interview.interviewType) && Objects.equals(technology, interview.technology) && Objects.equals(discipline, interview.discipline);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, candidate, interviewer, interviewType, technology, discipline);
+        return Objects.hash(id, usuario,  interviewType, technology, discipline);
     }
 }

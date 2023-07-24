@@ -7,6 +7,8 @@ import postwork1.Bedu.repository.TechnologyRepository;
 import postwork1.Bedu.service.TechnologyService;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class TechnologyServiceImpl implements TechnologyService {
     @Autowired
@@ -22,9 +24,10 @@ public class TechnologyServiceImpl implements TechnologyService {
     }
 
     @Override
-    public Technology obtenerTechnologyPorId(Integer id) {
-        return technologyRepository.findById(id).get();
+    public Optional<Technology> get(Integer id) {
+        return technologyRepository.findById(id);
     }
+
 
     @Override
     public Technology actualizaTechnology(Technology technology) {
